@@ -1,0 +1,501 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Documents/vinotes.txt.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="conf">
+<meta name="settings" content="use_css">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+body { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+.String { color: #afaf87; }
+.Comment { color: #5f5f5f; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="Comment">##############################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 1</span>
+<span class="Comment">#</span>
+<span class="Comment">##############################################</span>
+
+Two modes: command mode and insert mode
+
+command mode is activated by the escape key
+insert mode is activated by the insert key
+
+The command to quit and save edits is ZZ
+You can also use :wq!
+
+If you have made a mistake with a file and just want to start over use the :e! command
+
+You can also use :q! to quit without saving. This will however exit you from vi and back to the command prompt
+
+If you start editing a file and decide you want to save it to a different filename use :w newfilename
+
+If you find out you do not have permission to write to that directory then just use :w /home/username/filename or any other path
+
+If you want to see where you are in the file system type :!pwd or check disk space :!df or remove a file :!rm filename
+
+Basically :! followed by command name gives you access to the shell. You just hit enter to come back to your file in vi
+
+You can type :sh to enter a shell and do any filesystem work you need and then just type exit to come back to your file where you left off.
+
+You can also use CTRL-Z to take you to a shell then type fg (foreground) to take you back to vi
+
+
+<span class="Comment">###############################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 2</span>
+<span class="Comment">#</span>
+<span class="Comment">###############################################</span>
+
+Before you can use the movement keys make sure you are in command mode by hitting ESC. The movement keys are h,j,k,l. h moves you left one space. j moves you down one line. k moves you up one line and l  moves you to the right one space. Try not to use the arrow kwys. It takes your hands off the home row and takes the rythem out of your typing. Later on you can remap the arrow keys to make sure you do not use them during editing.
+
+You can move to the end of the line by hitting ESC to make sure your in command mode then $
+You can move to the beggining of a line by hitting ESC then hitting Zero 0
+
+You can also move by word, sentences or paragraphs. Hit ESC to make sure your in command mode then hit w to move forward one word. You can keep hitting w to move to the next word or punctuation. Use capital W to move by words only.
+
+To move backward one word at a time use the b key. Make sure your in command mode by hitting ESC. The opposite of the W key is the B key with a capital B. This will  move backwards one word skipping punctuation.
+
+To move by lines use the G key. Make sure your in command mode by hitting ESC. G takes you to the bottom of the screen. You can use 1G to move to the top of the screen and 42G to move to line 42. This comes in very handy when you are debugging a file and it says that the error is on a certain line number. You can just go there by hitting the line number followed by G.
+
+Using a number before w,b, and other movemoent characters multiples the times moved. 4w will move you forward 4 words. 4b will move you back 4 words.
+
+Some common editing commands you will learn. i for insert, a for append, d for delete, c for change, p for put, and y for yank.
+
+So to move a word you would delete with a d then p for put.
+To copy a word you would use y for yank and p for put.
+
+Remember these are commands so you have to hit ESC to be in command mode in order to use them.
+
+The above commands need a movement command to go with them. For example c for change combined with a w for word changes just one word.
+
+So you hit ESC to go into command mode then use the hjkl keys to move where you want to change the word then hit cw to change that word.
+
+cw also works on a word in case you misspelled it. So if you wanted to type spelling and you typed spelled you can just place the cursor over the i and type cw and then you can change the remaining text.
+
+** Something to remember **
+
+Some command put you right into insert mode so you can start typing after the command. Some keep you in command mode. This is something to keep in mind because it will give you a better workflow when you are typing to automatically go into insert mode after a command.
+
+****************************
+
+Here are a few combinations for the c change command.
+
+cw to change a word
+c$ if you want to change an entire line
+c0 if you are at the end of the line and want to change up to the begining.
+
+
+Most all of the commands work this way a command like c then a movement command line word or end of sentence or forward two words like c2w, change two words.
+
+Now remember how I told you that some commands put you in insert mode automatically and some keep you in command mode? Here is an example:
+
+Say you want to redo a line of text. You can do cc in command mode that will remove one line and then dump you in insert  mode so you can type. Now dd will do the same thing, delete a single line of text but keep you in command mode. Now if you make a mistake and type cc and realize you changed your mind just hit ESC to put you back in command mode then hit p for paste and it will put your line back.
+
+If you want to change a single character you have a few options. You can press r while in command mode while over the character you want to change or you can type x to delete then i to insert a new character. The difference is that using the r to change a character keeps you in command mode while using x to delete then i to insert a new character keeps you in insert mode. Now that we said all that the best command to use to replace one character is the s command. Hit ESC to make sure you are in command mode or look at the bottom bar to make sure it does not say insert and use the h,j,k,l keys along with w for  move word or b for back or $ to move to the end of the line or 0 for the begining and when you are over your character you can just type s and it will delete the character under the s and put you in insert mode so you can type a new character and keep you in insert  mode.
+
+Lets say you wrote a sentence and you dont like how it ended. You can move to the part of the sentence you want to reword your sentence and then use a capital C in command mode and it will remove the rest of the line and put you in command mode to fix the sentence.
+
+
+Lets say that you wrote a sentence and you dont like the whole sentence and want to rewrite it. You can go into command mode ESC then hit shift s for a capital S and it will remove the entire line no matter where you are in the sentence.
+
+So s removes one character and puts you in insert mode and capital S removes the entire sentence and puts you in insert mode.
+
+You can use capital R to go into replace mode. This will let you replace up to one line of text until you hit the ESC key.
+
+You can toggle the case of a letter by using the ~ tilde key. This will change upper to lower or lower to upper and then move to the next character.
+
+Now to delte text you can use the d key. The d key does not work by itself it requres a text object. Use dw to delte a word, dd to delete an entire line. If you ware in the middle of a sentence and just want to delete to the end of the line you can use capital D or d$. They are the same.
+
+** Something to remember **
+
+When you delete something you can always get it back by hitting ESC then hit p for put. You can also use U for undo. So dont freak out.
+
+****************************
+
+In vi you do a copy and paste by using the c command for copy or d command for delete. It is much more comman to copy and paste an entire line of text then just a word. To paste it back somewhere else in the file you use the p key or P key. The only difference is that one places the paste before the cursor and one places it after the cursor.
+
+Just remember that you have to paste after you cut or copy the information or it will be gone.
+
+Later on we will learn about buffers. Bufferes are places in memory you can store stuff like a cut or copy and give it a name to retreive later.
+
+To copy text into the buffer you can use y. y uses the same text object modifiers as the other commands do, yw y$ and 4yy. If you are just doing a single line of text you can use yy or Y they both do the same thing. 4yy is cool because it will yank 4 sentences into the yank buffer so you can paste the 4 lines at one time.
+
+Here are some new commands
+
+shift a or A will append to the end of the current line
+shift i or I will insert text at the begining of a line
+lowercase o will open a blank line below the cursor for text.
+Uppercase O will open a blank line above the cursor for test.
+s will delete a character and allow you to add a new character
+shift s or S will delete an entire line and let you substitue text.
+shift r or R will put you in replace mode up till the end of the line.
+
+All of these above commands will put you into insert mode after the command. Remember to hit ESC to go back to command mode.
+
+If you find yourself proof reading your sentences and need to add a word in the middle of a sentence use ea. The e puts you and the end of the word and a puts you in append mode.
+
+Train yourself to find keys that work well together so that your workflow will be more seemless.
+
+If you find yourself with several short lines of text  you can join them into one sentence with the J key.
+
+To repeat an action use the period key .  Just be careful when you delete not to repeat because this will overwrite your buffer.
+
+** To copy and paste this into another file do this:
+
+    1. Go into command mode and type this :split index.html
+    2. This will prompt you to confirm the filename hit enter
+    3. Click inside this window and move the cursor to the top of where you want to copy.
+    4. While in command mode hit v to enter visual mode.
+    5. While in visual mode move the curor to the bottom of the paragraph then press y to copy or d to delete. This will put the text into a buffer to be pasted into the new document.
+    6. Now click inside the new window. In command mode click p for paste.
+
+    Another way to do it with vi commands
+
+    1. Go to the line where you want to start to copy.
+    2. Mark the line as <span class="String">&quot;a&quot;</span><span class=""> by typing ma</span>
+    3. Go to the bottom of the text to be copied.
+    4. Type y'a to yank the lines into a buffer
+    5. Type :split index.html to open a new file
+    6. Confirm the filename
+    7. Type a p in command mode to paste the contents.
+
+
+<span class="Comment">#######################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 3</span>
+<span class="Comment">#</span>
+<span class="Comment">#######################################################</span>
+
+To scroll the screen use these commands:
+CTRL f to move forward one screen
+CTRL b to more backward one screen
+CTRL d to move forward a half screen
+CTRL u to move backward half screen
+
+
+This sometimes comes in handy when you want to move the screen up, down, or in the middle
+
+Go into command mode and type z plus enter to scroll your page to the top of the screen
+type z. to scroll the screen to the middle of the page
+type z- to move the page to the bottom of the screen
+
+If your screen gets garbled by system messages or other terminal clutter you can redraw the screen by hitting CTRL - L
+
+To move around the screen you can use these commands:
+
+H - moves to the top line on the screen.
+M - moves to the middle of the screen.
+L - moves to the last line on the screen.
+
+If your j and k are not working correctly and getting you where you want to be try plus and minus
+
++ will put you to the first character of the next line
+- will put you in the first character of the previous line
+
+Here are a few keys you can use to move chunks of text either copy or cut
+
+e - moves the to the end of the word.
+E - moves to the end of the word ignoring puncutation.
+
+( - moves to the begining of the current sentence.
+) - moves to the begining of the next sentence.
+
+{ - moves to the begining of the current paragraph.
+} - moves to the begining of the next paragraph.
+
+[[ - moves to the begining of the current section.
+]] - moves to the begining of the next section.
+
+These really only come in handy when you want to cut or copy chunks of text
+
+You can do 2y} to copy two paragraphs ahead.
+or 2d} to cut two paragraphs ahead.
+
+You can search for text by going into command mode and hitting /
+This allows you to search for any pattern or string just by hitting /stringtosearchfor
+
+To search backwards use a ? instead of a /
+
+To seach again in the same direction use n or use N to search in the opposite direction
+
+
+What if you want to search the current line of text for a certain string of characters?
+
+Here are the commands to search the current line:
+fx - This is f followed by the character your looking for to find the next occurance of x.
+Fx - This is capital F followed by the character your looking for. This will send you to the previous occurance.
+tx - This will send you to before the next occurance of x in the line.
+Tx - This will send you to the character previous occurance of x in the line.
+; - will repeat search
+' - will repeat search in the opposite direction.
+
+Once again going into command mode and hitting G will take you to the end of the file or the bottom.
+1G will take you to the top line.
+44G will take you to line 44 in the file.
+
+<span class="Comment">###########################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 4</span>
+<span class="Comment">#</span>
+<span class="Comment">###########################################################</span>
+
+When you start vi you have a few options when opening a file.
+vi +n filename opens vi at a certain line number.
+vi + filename opens vi up at the last line of the file.
+vi +/pattern filename opens up vi at the first occurance of the pattern.
+
+vi -R filename opens the file in read only.
+view filename does the same thing.
+
+Now is one of those fun parts that we have been working up to.
+How to yank multiple lines of text and put it in a buffer for later.
+A buffer is a place in memory that you can hold text. You are allowed 26 buffers from a-z.
+
+To yank or copy 5 lines of text and put it in a buffer here is what you do.
+Move your cursor to where you want to start the copy.
+Type in <span class="String">&quot; then the buffer letter a in this case, then the number of lines 5 in this case then yy so &quot;</span><span class="">a5yy</span>
+That puts the 5 lines of text into buffer a and will stay there until you overwrite buffer a.
+Go to where you want to paste the command in.
+Now to paste all you have to do is &quot;ap
+
+You have a choice where you place the text from the buffer. p for put places the text after the cursor. Capital P places the text before the cursor.
+
+In order to do a cut and paste use dd instead of yy. so it would be <span class="String">&quot;a5dd to cut then &quot;</span><span class="">ap to paste.</span>
+
+We have a-z for buffers right, well if you want to append to what you already have in that buffer use a capital letter instead of lowercase.
+So if you already did a <span class="String">&quot;a5dd and added five lines of text you can add more text by doing &quot;</span><span class="">A10dd . So when you paste you will have 15 lines of text.</span>
+
+
+
+
+<span class="Comment">###########################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 5</span>
+<span class="Comment">#</span>
+<span class="Comment">###########################################################</span>
+
+In order to do a search and replace on a single line you can invoke the ex editor like this.
+
+:s/stringtofind/stringtoreplace
+
+To search globally and replace all use :%s/pattern/replace/g
+To search certina lines use :50,100s/pattern/repalce/g
+To add confirmation to a search use the c command so it would be :%s/pattern/replace/gc - enter y to confirm change then enter to go to the next search string or just hit enter to skip confirmation.
+
+
+
+To move to any specific line in the file you invoke the ex editor like this.
+
+:6 - this takes you to line 6
+
+The ex editor is good if you have bulk edits to move, copy or delete text.
+
+delete with d
+move with m
+copy with co
+yank with ya
+put with pu
+Here is how you make bulk edits to a file.
+
+:3,18d - Delete lines 3 to 18
+:100,150m25 - Take lines 100 to 150 and move them after line 25
+:25,30co100 - Copy lines 25 to 30 and paste them after line 100.
+:160,224ya a - yank lines 160 to 224 and put in buffer a.
+To put the contents of buffer a you would use :e to move to the file and place the cursor where you want it and do :pu a
+
+
+To print the current line number use CTRL-G You can also use the ex command :.=
+
+To print the first line number containing the pattern :/pattern/=
+
+To save and exit vi you can use a few different combinations.
+
+:ZZ save and exit
+:w  save buffer to file but do not exit
+:q  exit vi without saving
+:wq save the buffer to file and exit
+:x  both write the file and quit the editor
+:w! over-rides a read only file and lets you save changes as long as you have permissions.
+:q! allows you to quit discarding any changes made to the file.
+
+Lets say you want to create a backup of your file for whatever reason
+
+:w newfile.backup saves your current edits to a new filename and does not touch your old file.
+
+If you want to save part of a file to a new file you can do this.
+:230,$w newfile.name - saves from line 230 to the end of the file in the new file name.
+or
+:.,600w newfile.name - saves from the current line to line 600 in a new file name
+
+If you want to keep appending parts of a file to a new file do this.
+
+:1,10w newfile - This would take lines 1 to 10 to the new file name. Then
+:340,$w &gt;&gt; newfilename - would take line 340 to the end of the buffer and add it to the new filename
+
+Sometimes you want to add file contents from another file into your current file.
+
+:read filename - inserts the text from the filename after the current cursor location.
+:r filename is the same thing
+
+:r /path/to/filename works too
+
+To read in a file and place it at line 200 you can do this
+:200r /path/to/filename
+:$r /path/to/filename adds the text from the new file at the end of the current file
+:0r /path/to/filename adds the text from the new file to the begining of the file.
+
+vi can manage two files at a time. You can cut,copy and paste between two files. A named buffer stays in memory after your done editing a file.
+
+Here is how you copy and paste data from one file to another.
+
+&quot;f4yy copies 4 lines of text into buffer f
+:w saves changes to existing file.
+:e otherfile - opens another file
+&quot;fp writes 4 lines of text into other file.
+
+vi has a shortname for current file % and second file is named <span class="Comment">#</span>
+:args shows what the current file is
+CTRL ^ moves from one file to the next. You can also use :n
+
+
+<span class="Comment">###########################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 6</span>
+<span class="Comment">#</span>
+<span class="Comment">###########################################################</span>
+
+Read Mastering Regular Expressions
+
+
+
+<span class="Comment">###########################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 7</span>
+<span class="Comment">#</span>
+<span class="Comment">###########################################################</span>
+
+Part one - Customize your editing environment
+
+You can change options from within vi by using the ex command :set.
+
+If you want to make permanent changes you can put the commands in .exrc in your home dir. vi reads this file every time you start a session..
+By placing :set commands in this file vi will read them every time you start a vi session. You can also place ab and map commands in this file
+You can have multiple .exrc files but the one in your home dir will be read first. You might want to have different exrc files depending on what your working on. You can even create a custom file and then source it into your current vi session with the :so .customexrc command.
+
+Here is a neat macro you can enter in your .exrc for python programmers
+map @ :!python %^M
+map <span class="Comment"># :!python % </span>
+set ai sm sw=4
+
+The :set command has two types of options, toggle options, and options that take a string or numeric value.
+
+To specifiy that pattern searches should ignore case type :set 1c
+If you want to turn off case-sensative searches you can turn it off by issuing command :set no1c
+
+Some options have a value assigned to them. For example the window options sets how many lines should be shown on the screens window
+:set window=20
+
+During the vi session you can check which options vi is using by using the :set all command
+This will tell you vi defaults and settings you have explicitinly set
+
+To check the setting of a particular option just use the :set option?
+
+To check during a vi session what changes you have made to the settings use :set with no options
+
+
+Part two - Execute shell commands from within vi
+
+As we said earlier that you can execute commands from within vi with the :!command you can also break out into a shell with :sh
+To come back just hit CTRL-D
+
+if you want to read the conents of the command into your vi text file you can do a :r !date and that will place the contents of the command in the file you are working on.
+
+:r will read in any text file into your current working document.
+
+
+part three - mapping keys
+
+You can make abbreviations for text. These work in insert mode. If you define an abbreviation with the :ab phrase text command then you can use it whenever you want inside a document.
+To remove an abreviation type :unab yourabbreviation
+To list your current abbreviations type :ab
+
+When using complex commmands in vi you can map them to an unused key. This is sometimes called a macro and is used in command mode.
+:map x sequence
+:unmap x
+:map - list the characters that are currently mapped.
+
+
+part four - ex commands used in a script
+
+Sometimes you may want to use ex commands in a script. For example on reason is to spell check. If you open up vi and type in some substituion code then save it you can invoke it inside another file. So lets say I create a file with this in it:
+
+%s/thier/their/g
+%s/writeable/writable/g
+wq
+
+Then I open up my document I want to check and run this script as a set of ex commands by invoking it like this :so exscript
+
+It will do the substitions then quit the script file.
+
+
+part five - programmer options
+
+One of the most common settings for a programmer is autoindent. You set this in your exrc like this: :set autoindent
+
+While in insert mode you can use this tab by hitting CTRL-T . You can take away a tab by hitting CTRL-D
+
+If you want to find matching opening and closing brackets use the % in command mode.
+
+You can turn on the option showmatch to highlight all the opening and closing brackets. You set it by using :set showmatch
+
+<span class="Comment">########################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 8</span>
+<span class="Comment">#</span>
+<span class="Comment">########################################################</span>
+<span class="Comment">#</span>
+Nothing worth remembering
+
+<span class="Comment">#######################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 9</span>
+<span class="Comment">#</span>
+<span class="Comment">########################################################</span>
+
+Skip this chapter
+
+<span class="Comment">#######################################################</span>
+<span class="Comment">#</span>
+<span class="Comment">#   Chapter 10</span>
+<span class="Comment">#</span>
+<span class="Comment">#########################################################</span>
+
+You can split the vim window by issueing two commands. :split and :vsplit
+If you want to open two files from the command line in a split window you would do vim -o filename filename
+
+If you want to move around the windows use CTRL-W and the up/down keys
+
+You can also cycle through the windows with CTRL-x
+Here are a few more commands to move the windows around
+CTRL-K moves the current window to the top of the screen
+CTRL-J moves the current window to the bottom of the screen
+CTRL-H moves the current window to the left of the screen
+CTRL-L moves the current window to the right of the screen
+
+You can create tabs like firefox. Use the :tabnew filename to open a new tab
+To close the tab use :tabclose
+To close all other tabs use :tabonly
+To move from one tab to another you can use your mouse or use CTRL-PAGEUP and CTRL-PAGEDOWN
+
+</pre>
+</body>
+</html>
